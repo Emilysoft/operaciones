@@ -19,17 +19,19 @@ return new class extends Migration
             $table->date('fecha_vencimiento');
             $table->date('fecha_ejecucion');
             $table->string('estado');
-            $table->foreignId('id_usuario')->constrained()->onDelete('cascade');
-            $table->foreignId('id_trabajo')->constrained()->onDelete('cascade');
-            $table->foreignId('id_maquinaria')->constrained()->onDelete('cascade');
-            $table->foreignId('id_sector')->constrained()->onDelete('cascade');
+            
+            /*
+             * Referencias: https://laravel.com/docs/10.x/migrations#foreign-key-constraints
+             *
+             * Como indica la documentación: el método `foreignId` crea la columna teniendo como convención de <tabla>_<columna>.
+             * La relación con el ID de la tabla 'usuarios' sería `usuario_id`, 'usuario' en singular porque el método lo pluraliza agregándole una 's' al final.
+             */            
+            $table->foreignId('usuario_id')->constrained()->onDelete('cascade');
+            $table->foreignId('trabajo_id')->constrained()->onDelete('cascade');
+            $table->foreignId('maquinaria_id')->constrained()->onDelete('cascade');
 
-
-
-
-
-
-
+            /* Para esta columna es necesario definir el nombre de la tabla (sectores) en el método `constrained` porque por defecto 'sector' lo pluraliza a 'sectors', donde esa tabla no existe.  */
+            $table->foreignId('sector_id')->constrained('sectores')->onDelete('cascade');
 
             $table->timestamps();
         });
