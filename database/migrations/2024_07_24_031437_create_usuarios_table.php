@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
+            $table->integer('rut');
+            $table->string('dv');
+            $table->string('nombre');
+            $table->string('apellido_paterno');
+            $table->string('apellido_materno');
+            $table->string('email');
+            $table->string('telefono');
+            $table->string('direccion');
+            $table->string('rsh');
+            $table->string('estado');
+            $table->foreignId('sector_id')->constrained('sectores')->onDelete('cascade');
             $table->timestamps();
         });
     }

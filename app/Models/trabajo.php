@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class trabajo extends Model
 {
     use HasFactory;
+
+    protected $table = 'trabajos';
+
+    public function operaciones(){
+        return $this->hasMany(operacione::class);
+    }
 }
