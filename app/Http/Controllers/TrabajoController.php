@@ -31,4 +31,19 @@ class TrabajoController extends Controller
     }
 
 
+    public function show($id)
+    {
+        $trabajo = Trabajo::find($id);
+        return view('Trabajos.ShowTrabajo', compact('trabajo'));
+
+    }
+
+    public function destroy($id)
+    {
+        $trabajo = Trabajo::find($id);
+        $trabajo->delete();
+        return redirect('/trabajos');
+    }
+
+
 }
