@@ -45,5 +45,23 @@ class TrabajoController extends Controller
         return redirect('/trabajos');
     }
 
+    public function edit($id)
+    {
+        $trabajo = Trabajo::find($id);
+        return view('Trabajos.EditTrabajo', compact('trabajo'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $trabajo = Trabajo::find($id);
+        $trabajo->nombre_trabajo = $request->nombre_trabajo;
+        $trabajo->estado = $request->estado;
+        $trabajo->descripcion = $request->descripcion;
+        $trabajo->save();
+        return redirect('/trabajos');
+    }
+
+
+
 
 }
