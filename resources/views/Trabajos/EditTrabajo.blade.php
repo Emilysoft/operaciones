@@ -17,7 +17,7 @@
                 <label for="estado">Estado</label>
                 <label for="activado">
                 <input type="radio" name="estado" value="activo"
-                @if($trabajo->estado == 'activo')
+                @if($trabajo->estado == 'activo')   
                 checked 
                 @endif
                 >    

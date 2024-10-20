@@ -8,14 +8,12 @@
 <body>
     <h1>Pantalla del create</h1>
 
-    <form action="/trabajos" method="POST">
+    <form action="/sectores" method="POST">
     @csrf
 
 
-    <label for="nombre">Trabajo</label>
-    <input type="text" name="trabajo" id="trabajo" placeholder="Nombre de trabajo">
-    <label for="descripcion">Descripcion</label>
-    <textarea name="descripcion" id="descripcion"></textarea>
+    <label for="nombre">Sectores</label>
+    <input type="text" name="sector" id="sector" placeholder="Nombre del sector">
     <br>
     <br>
     <input type="submit" value="guardar">
