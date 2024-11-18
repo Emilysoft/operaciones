@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrabajoController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\MaquinariaController;
+use App\Http\Controllers\UsuarioController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,6 +41,8 @@ Route::delete('/maquinarias/{id}', [MaquinariaController::class, 'destroy']);
 Route::get('/maquinarias/{id}/edit', [MaquinariaController::class, 'edit']);
 Route::put('/maquinarias/{id}',[MaquinariaController::class, 'update']);
 
-
-
+//user
+Route::get('/usuarios', [UsuarioController::class, 'index']);
+Route::get('/usuarios/create', [UsuarioController::class, 'create']);
+Route::post('/usuarios', [UsuarioController::class, 'store']);
 
